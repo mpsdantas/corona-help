@@ -27,6 +27,7 @@ mongoose.set("useCreateIndex", true);
 
 loadModels()
 
+app.use("/", require("./../src/routes/index"))
 app.use("/", require("./../src/routes/authenticate"))
 app.use("/", require("./../src/routes/user"))
 app.use("/", require("./../src/routes/tracker"))
