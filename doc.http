@@ -1,0 +1,109 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uSWQiOiJzZV92cmFraXloNWZ6b2FscHVpZjR0NXVkN2t5a2x4eHplNCIsImlhdCI6MTU4NTIwMjQwMywiZXhwIjoxNTg3Nzk0NDAzfQ.851_3myb1YX8W3uOcF_acj8LP5SE_zsPmivwtSqv5FY
+
+@host=http://localhost:8080
+
+### Create User
+# name: String, required.
+# email: String, required.
+# age: Int, required.
+# document: String, required.
+# password: String, required.
+POST  {{host}}/api/v1/user HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Caleb Antonio Rodrigues",
+    "email": "calebantoniorodrigues-72@advocaciand.adv.br",
+    "age": 28,
+    "document": "000.479.808-26",
+    "password": "123456"
+}
+
+### Login
+# email: String, required.
+# password: String, required.
+POST   {{host}}/api/v1/authenticate/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "calebantoniorodrigues-72@advocaciand.adv.br",
+    "password": "123456"
+}
+
+### Logout
+POST   {{host}}/api/v1/authenticate/logout HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Get user
+
+### List users
+# skip: Int, optional, default: 0
+# limit: Int, optional, default: 100
+GET {{host}}/api/v1/users HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "skip": 0,
+    "limit": 100
+}
+
+#### Get my user
+GET {{host}}/api/v1/my-user HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Create tracker
+### all required
+POST {{host}}/api/v1/tracker HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "location": {
+        "coordinates": [
+            -35.199537,
+            -5.861251
+        ]
+    },
+    "healthCondition": {
+        "corona": false,
+        "fever": true,
+        "coryza": false,
+        "stuffyNose": false,
+        "tiredness": false,
+        "headache": false,
+        "bodyPain": false,
+        "generalDiscomfort": false,
+        "soreThroat": false
+    }
+}
+
+#### get all tracker
+# location: cordinates: required
+# minDistance: optional
+# maxDistance: optional
+GET {{host}}/api/v1/trackers HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ 
+     "location": {        
+        "coordinates": [-36.199537, -5.861251]
+    }
+}
+
+### Update location
+PATCH {{host}}/api/v1/tracker/tr_9hkn9d1sjpsw630htv14rgdehavyn864 HTTP/1.1 
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "location": {
+        "coordinates": [
+            -36.299537,
+            -5.861251
+        ]
+    }
+}
