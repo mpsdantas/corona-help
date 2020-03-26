@@ -1,0 +1,39 @@
+{
+  "name": "boilerplate-node",
+  "version": "2.0.0",
+  "description": "Boilerplate para aplicações nodejs",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpsdantas/boilerplate-node.git"
+  },
+  "author": "Marcus Paulo Soares Dantas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mpsdantas/boilerplate-node/issues"
+  },
+  "homepage": "https://github.com/mpsdantas/boilerplate-node#readme",
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "consign": "0.1.6",
+    "cors": "^2.8.5",
+    "cpf-check": "^3.0.0",
+    "dotenv": "6.0.0",
+    "express": "4.16.4",
+    "js-sha512": "^0.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "match-sorter": "^2.3.0",
+    "mongoose": "^5.9.5",
+    "mongoose-transactions": "^1.1.1",
+    "morgan": "1.9.1",
+    "uid": "^1.0.0",
+    "yup": "^0.28.3"
+  }
+}
