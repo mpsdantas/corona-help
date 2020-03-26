@@ -1,7 +1,10 @@
-module.exports = application => {
-  application.get("/", (req, res) => {
-    return res.json({
-      message: "welcome to covid-19 api",
-    });
+const express = require("express");
+const router = express.Router();
+
+router.get("/", (req, res, next) => {
+  return res.status(200).json({
+    message: "welcome to covid-19 api",
   });
-};
+});
+
+module.exports = router
